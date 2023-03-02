@@ -5,6 +5,68 @@
     box-sizing: border-box;
 }
 
+h1 {
+    font-size: 2rem;
+}
+
+header {
+    position: sticky;
+    /* border: solid thin black; */
+    top: 0;
+    z-index: 200;
+    margin-left: .25rem;
+    /* margin: 2rem auto; */
+    min-height: 15vh;
+    width: 98vw;
+    background-color: rgb(32, 148, 51);
+    /* display: inline-block; */
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: .5rem;
+}
+
+.container {/*afecta el ancho total de la caja de nav*/
+    min-width: 100%;  
+    min-height: 15vh;
+}
+nav {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:space-between;/*espacio entre logo y anchors*/
+    z-index: 199;
+    margin-top: .5rem;
+    align-items:center;
+}
+.navigator {
+    display: flex;
+    padding: 1rem;
+}
+
+#contenedor {
+    width: 98vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;/*centra las cards de la ùltima fila(probado26feb23)*/
+    
+}
+
+#categories {/*check-box y search btn*/
+    margin-left: 3%;
+    width: 90vw;
+}
+
+#left_arrow {
+    height: 2rem;
+    width: 2rem;
+    color:rgb(15, 39, 58)
+}
+
+#right_arrow {
+    height: 2rem;
+    width: 2rem;
+    color:rgb(15, 39, 58)
+}
 #instagram,
 #facebook,
 #whatsapp {
@@ -12,70 +74,63 @@
     width: 2rem;
 }
 
+.col {/* afecta el centrado vertical del slidebar*/
+    align-items: center;
+}
 
 
 #logo_AE {
     width: 200px;     
     height: 40px;
+    margin-left: 0;   
 }
 
 #image2 {
     width: 100%;
     height: 300px;
 }
-
-header {
-    margin-top: .05rem;
-    min-height: 9vh;
-    width: 100%;
-    background-color: rgb(113, 113, 180);
-    display: inline-block;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    padding: .5rem;
-    
-}
-
-.navbar {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    margin: 0 10 0 10;
-    
-}
-
 .navbar_2 {
-
-    height: 11vh;
-    width: 100%;
-    background-color: rgb(113, 113, 180);
-    display: inline-block;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    padding: 20px;
-}
-
-nav {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
-    z-index: 1;
-    gap: 0.2rem;
-
+    height: 16vh;
+    min-width: 100%;
+    text-align: center;
+    background-color: rgb(55, 55, 88);
+    
 }
 
-nav a {
+/* main {
+    border: solid thin black;
+} */
+
+.row {
+    width: 98vw;/*está igual a header*/
+    margin-left: .25rem;/* igual a header*/
+    /* border: solid thin black; */
+    display: flex;
+    align-items: center;
+}
+
+.navbar_2 > h1{
+    margin-top: auto;
+}
+
+.container nav a {
+    display: flex;
+    flex-direction: row;
     text-decoration: none;
     font-size: .75rem;
     color: beige;
-    background-color:blue;
-    width: 10vw;
+    background-color:rgb(43, 31, 97); 
     padding: 10px;
-    box-shadow: 2px 2px rgba(32, 29, 29, 0.412);
-    border-radius: 10px;
+    box-shadow: -4px -4px rgba(32, 29, 29, 0.412);
+    border-radius: 5px;
     text-align: center;
+    align-items: center;
+    margin: .1rem;
+    height: 50px;
+    width: 100px; 
 }
-
 
 .navbar_2 nav a {
     height: 2rem;
@@ -91,27 +146,33 @@ nav a {
     color: white;
 }
 
-a:hover {
+.container nav a:hover {
     background-color:rgb(89, 160, 75);
     color: white;
 }
 
 main {
     display: flex;
-    
-    width: 80vw;
-    margin: auto;
+    /* border: solid thin black; */
+    min-width: 98vw;
+    margin-left:.25rem;
     justify-content: center;
     background-color: wheat;
-    min-height: 60vh;
+    height: 62vh;
+}
+
+.details-main {
+    min-height: 70vh;
 }
 
 footer {
     background-color: rgb(15, 39, 58);
-    min-height: 9vh;
+    min-height: 7vh;
     bottom: 0px;
     margin-top: 0;
     padding: 1rem;
+    width: 98vw;
+    margin-left: .25rem;
 }
 form {
     border: 2px solid white;
@@ -126,13 +187,10 @@ form {
     width: 200px;
 }
 
-
  .card-title {
     font-weight: bold;
     font-size: 1.5em;
 }
-
-
 
 .card-body {
     text-align: center;
@@ -144,27 +202,28 @@ form {
     
 }
 .card {
-    margin: 2%;
-   
-}
-
-.card-img-top {
-    
-    width: 90%;
-    height: 45%;
-    
-    object-fit: cover;
-}
-
-.card-bottom {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    flex-direction: column;
+    width: 20rem;
+    min-height: 26rem;
+    margin: .25%;
+    bottom: 0;  
 }
 
-.card-bottom p {
-    font-size: 1.2rem;
+.card-img-top {  
+    width: 90%;
+    height: 50%;
+    object-fit: cover; 
+}
 
+/*afecta precio y botón de las card (revisado 26feb23)*/
+.card-footer {
+    display: flex;
+    flex-wrap: wrap;
+    width: 95%;
+    position:absolute;
+    bottom: 0;
+    justify-content: space-between;
 }
 
 .btn {
@@ -174,16 +233,25 @@ form {
     box-shadow: -.15em -.15em rgb(57, 59, 59);
 }
 
-@media only screen and (min-width: 768px) and (max-width: 1024px) {
+@media only screen and (min-width: 567px) and (max-width: 767px) {
     .card {
-        height: 18rem;
+        height: 23rem;
+        
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+    .card {
+        height: 23rem;
+        
     }
 }
 @media only screen and (min-width: 1024px) {
     .card {
         height: 23rem;
+        
     }
-}
+}  
 
 
 /********stats-container********/
@@ -214,7 +282,7 @@ table {
 
 .contact_form {
     
-    min-height: 65vh;
+    /* min-height: 55vh; */
     align-items: center;
     width: 50vw;
     margin: auto;
@@ -239,9 +307,10 @@ table {
 }
 
 .submit {
-    width: 10vw;
+    min-width: 15vw;
     height: 4vh;
-    margin-left: 30vw;
+    margin-left: 25vw;
+    margin-right: 15vw;
 
 }
 
@@ -249,3 +318,77 @@ table {
 .details-row {
     min-height: 30vh;
 }
+ @media only screen and (min-width:575px) and (max-width:1024px) {
+   
+}
+@media only screen and (min-width:320px) and (max-width:574px){
+    .navbar_2  {
+        width: 100%;
+        height: 10vh;
+        align-items: center;
+        
+    }
+
+    nav {
+        height: 80%;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .col {
+        padding-top: .05rem;
+
+    }
+
+    #logo_AE {
+        width: 120px;     
+        height: 36px;
+        margin-left: 0;
+        
+    }
+
+    .navigator a {
+        left: 0;
+    }
+
+
+    .container nav a {
+        height: .8rem;
+        width: 8rem;
+    }
+
+   .navigator{
+    flex-direction: column;
+    width: 60%;
+    align-items: end;
+    top: 0;
+    padding: .01rem;
+   }
+   
+   .navigator  a{
+
+    width: 90%;
+   }
+
+   header {
+    height: 24vh;
+    padding: 1px;
+   }
+    
+
+    .navbar_2 nav {
+    flex-direction: column; 
+    width: 100%;
+     align-items: center;
+    }
+
+    .stats-container{
+        flex-direction: column;
+    }
+
+    } 
+
+
+
