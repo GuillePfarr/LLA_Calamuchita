@@ -1,17 +1,10 @@
+// events = data.events
+const f_events = data.events.filter(event => event.date > data.currentDate)
+// let event = events.event
+console.log(f_events);
 
-cDate = data.currentDate;
-events = data.events
-p_events = []
-f_events = []
 
-for (let event in events) {
-    if (events[event].date < cDate) {
-        p_events.unshift(events[event])
-    }
-    else {
-        f_events.unshift(events[event])
-    }
-}
+
 const contenedorTarjetas = document.querySelector("#contenedor")
 
 let tarjetasGeneradas = crearTarjetas(f_events)
@@ -21,6 +14,7 @@ contenedorTarjetas.innerHTML = tarjetasGeneradas
 function crearTarjetas(arrayData){
     let tarjetas =""
     for (const event of arrayData){
+      
         tarjetas += `<div class="card">
         <img src="${event.image}" class="card-img-top" alt="...">
         <div class="card-body">
@@ -28,7 +22,7 @@ function crearTarjetas(arrayData){
           <p class="card-text">${event.description}</p>
           <div class="card-footer">
           <p>Price:&#36; ${event.price}</p>
-          <a href="details.html" class="btn btn-warning">DETAILS</a>
+          <input type="button" class="btn btn-warning" onclick="seeDetail('${event._id}')" value="See more" id="button"></input>
         </div>
         </div>
       </div>`
@@ -36,6 +30,10 @@ function crearTarjetas(arrayData){
     return tarjetas
 }
 
+function seeDetail(_id) {
+  window.location.href = `./details.html?id=${_id}`
+}
 
 
+{/* <a href="details.html" class="btn btn-warning">DETAILS</a> */}
 
