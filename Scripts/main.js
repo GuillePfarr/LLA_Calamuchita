@@ -1,8 +1,8 @@
   
 
-function crearTarjetas( data ){
+function crearTarjetas( arrayData ){
   let tarjetas =""   
-  for (const event of data){
+  for (const event of arrayData){
       tarjetas += `<div class="card">
       <img src="${event.image}" class="card-img-top" alt="...">
       <div class="card-body">
@@ -16,7 +16,7 @@ function crearTarjetas( data ){
       </div>
     </div>`
   }
-  document.querySelector("#contenedor").innerHTML = tarjetas
+  document.querySelector("#contenedor-main").innerHTML = tarjetas
 }
 
 function seeDetail(_id) {

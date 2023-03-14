@@ -1,27 +1,35 @@
 
 let perfil = data.events.filter(info => info._id == new URLSearchParams(location.search).get("id") );
 console.log(perfil)
-/* Renderizar profile */
+
 const container = document.getElementById("details-contenedor");
 let html = "";
 
+
+ 
 html += `
-    <div class="card">
-        <img src="${perfil[0].image}" class="card-img-top"  alt="${perfil[0].name}">
-        <div clas="card-body">
-            <h5 class="card-title">${perfil[0].name}</h5>
-            
-            <p>Date:<span>${perfil[0].date}</span></p>
-            <p>Description:<span>${perfil[0].description}</span></p>
-            <p>Category:<span>${perfil[0].category}</span></p>
-            <p Place class="card-text">${perfil[0].place}</p>
-            <div class="card-footer>
-            <p>Price:&#36; ${perfil[0].price}</p>
-            <p> Estimate:${perfil[0].price}</p>
-            </div>
-            
-        </div>
+    <div class details-card">
+<div class="row no-gutters">
+  <div class="col-md-6">
+    <img src="${perfil[0].image}" class="details-card-img" alt="${perfil[0].name}">
+  </div>
+  <div class="col-md-6">
+    <div class="card-body">
+    <ul class="details-card-ul" >
+    <li> <span class="details-card-title">Name: ${perfil[0].name}</span></li>
+    <li>Date:${perfil[0].date}</li>
+    <li>Description:${perfil[0].description}</li>
+    <li>Category:${perfil[0].category}</li>
+    <li>Place:${perfil[0].place}</li>
+    <li>Capacity:${perfil[0].capacity}</li>
+    <li>Assistance:${perfil[0].assistance}</li>
+    <li>Price &#36;${perfil[0].price}</li>
+   </ul>
     </div>
+  </div>
+</div>
+</div>
+
     `
 
 
