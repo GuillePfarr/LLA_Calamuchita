@@ -43,9 +43,7 @@ nav {
     padding: 1rem;
 }
 
-#contenedor-main,
-#contenedor-upcoming,
-#contenedor-past {
+#contenedor {
     width: 98vw;
     display: flex;
     flex-wrap: wrap;
@@ -177,7 +175,10 @@ main {
 }
 
 .details-card-img{
+    
+   
     max-width: 70%;
+    
 }
 footer {
     background-color: rgb(15, 39, 58);

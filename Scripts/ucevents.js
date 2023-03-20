@@ -1,55 +1,42 @@
+let eventos = []
 
-function crearTarjetas( ev ){
-
-  var contenedor_id = document.querySelector('#contenedor-main') || 
-                      document.querySelector('#contenedor-upcoming') || 
-                      document.querySelector('#contenedor-past');
-        
-  switch(contenedor_id.id) {
-    case 'contenedor-main':
-      contenedor_id.innerHTML = ev.map( plantilla ).join('')
-      break;
-
-    case 'contenedor-past':
-      contenedor_id.innerHTML = ev.map( 
-          cada_evento => {
-                if( cada_evento.date < data.currentDate){
-                  plantilla(cada_evento)
-                }
-          }
-      ).join('')
-      break;
-
-    case 'contenedor-upcoming':
-      contenedor_id.innerHTML = ev.map( 
-            cada_evento => 
-            (cada_evento.date) > data.currentDate ? plantilla(cada_evento) : "" ).join('')
-      break;
+function traerDatos(){
+  // fetch("./Scripts/data.json")
+  fetch("https://mindhub-xj03.onrender.com/api/amazing")
+  .then(response => response.json())
+  .then( datosApi => {
+    console.log(datosApi)
+    eventos = datosApi.events.filter(event => event.date > datosApi.currentDate)
+    console.log(eventos)
+    crearTarjetas(eventos)
+  })
+     
+     
+  .catch(error => console.error(error.message))
+  
   }
+  
+  traerDatos()
 
-        if(contenedor_id.innerHTML==="") {
-          noEncontrado()
-        }
+  function crearTarjetas( eventos ){
+    let tarjetas =""   
+    for (const event of eventos){
+        tarjetas += `<div class="card">
+        <img src="${event.image}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">${event.name}</h5>
+          <p class="card-text">${event.description}</p>
+          <div class="card-footer">
+          <p>Price:&#36; ${event.price}</p>
+          <input type="button" class="btn btn-warning" onclick="seeDetail('${event._id}')" value="See more" id="button"></input>
+          
+        </div>
+        </div>
+      </div>`
+    }
+    document.querySelector("#contenedor").innerHTML = tarjetas
 }
-
-            function plantilla(event){
-              return `<div class="card">
-                    <img src="${event.image}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">${event.name}</h5>
-                      <p class="card-text">${event.description}</p>
-                      <div class="card-footer">
-                      <p>Price:&#36; ${event.price}</p>
-                      <input type="button" class="btn btn-warning" onclick="seeDetail('${event._id}')" value="See more" id="button"></input>
-                      
-                    </div>
-                    </div>
-                  </div>`
-            } 
 
 function seeDetail(_id) {
   window.location.href = `./details.html?id=${_id}`
 }
-
-
-crearTarjetas(data.events)

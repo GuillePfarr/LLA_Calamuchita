@@ -5,7 +5,7 @@ function captData() {
 console.log( ` checksCateg:  ${checksCateg} ` );
 console.log( ` ingresoBusqueda:  ${ingresoBusqueda}` );
 
-  let ev_filtrados = data.events.filter( each =>{
+  let ev_filtrados = eventos.filter( each =>{
                   return (each.name.toLowerCase().includes(ingresoBusqueda) || each.description.toLowerCase().includes(ingresoBusqueda) )
                       && ( checksCateg.length === 0 || checksCateg.includes(each.category ) )             
               }     
@@ -23,7 +23,9 @@ function noEncontrado(){
        </div>
    `,
    showCloseButton: true,
-   
+   //width: '50%',  
+   //grow: 'row',
+   //padding: '1rem',
 
 
  })

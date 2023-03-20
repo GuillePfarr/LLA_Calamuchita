@@ -1,12 +1,18 @@
+let perfil = []
 
-let perfil = data.events.filter(info => info._id == new URLSearchParams(location.search).get("id") );
+function traerDatos(){
+fetch("https://mindhub-xj03.onrender.com/api/amazing")
+.then(response => response.json())
+.then( datosApi => {
+  console.log(datosApi)
+  eventos = datosApi.events
+  console.log(eventos)
+  let perfil = eventos.filter(info => info._id == new URLSearchParams(location.search).get("id") );
 console.log(perfil)
-
+console.log(perfil[0].image)
 const container = document.getElementById("details-contenedor");
+
 let html = "";
-
-
- 
 html += `
     <div class details-card">
 <div class="row no-gutters">
@@ -33,4 +39,15 @@ html += `
     `
 
 
+
 container.innerHTML = html
+})
+   
+   
+.catch(error => console.error(error.message))
+
+}
+
+traerDatos()
+
+
