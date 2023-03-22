@@ -7,6 +7,7 @@
 
 h1 {
     font-size: 2rem;
+    color: aliceblue;
 }
 
 header {
@@ -18,7 +19,7 @@ header {
     /* margin: 2rem auto; */
     min-height: 15vh;
     width: 98vw;
-    background-color: rgb(32, 148, 51);
+    background-color: rgb(130, 201, 141);
     /* display: inline-block; */
     flex-wrap: wrap;
     justify-content: space-between;
@@ -48,6 +49,8 @@ nav {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;/*centra las cards de la ùltima fila(probado26feb23)*/
+    background-color: beige;
+    margin-left: .25rem;
     
 }
 
@@ -67,12 +70,12 @@ nav {
     width: 2rem;
     color:rgb(15, 39, 58)
 }
-#instagram,
+/* #instagram,
 #facebook,
 #whatsapp {
     height: 2rem;
     width: 2rem;
-}
+} */
 
 .col {/* afecta el centrado vertical del slidebar*/
     align-items: center;
@@ -93,9 +96,10 @@ nav {
     display: flex;
     flex-wrap: wrap;
     height: 16vh;
-    min-width: 100%;
+    min-width: 98vw;
     text-align: center;
-    background-color: rgb(55, 55, 88);
+    background-color: rgb(102, 102, 146);
+    margin-left: .07rem;
     
 }
 
@@ -105,7 +109,7 @@ nav {
 
 .row {
     width: 98vw;/*está igual a header*/
-    margin-left: .25rem;/* igual a header*/
+    margin-left: .15rem;
     /* border: solid thin black; */
     display: flex;
     align-items: center;
@@ -151,6 +155,10 @@ nav {
     color: white;
 }
 
+/* #categories {
+    background-color: bisque;
+} */
+
 main {
     display: flex;
     /* border: solid thin black; */
@@ -161,26 +169,32 @@ main {
     height: 62vh;
 }
 
-.details-main {
-    min-height: 70vh;
-}
+
 
 .details-main { /* afecta scroll vertical de details-modif 11-mar*/
-    min-height: 60vh;
+    min-height: 70.5vh;
 }
 
-
+.col-md-6 {
+align-items: center;
+margin: auto;
+}
 .details-card-title {
     font-size: 1.5rem;
 }
 
 .details-card-img{
+    height: 300px;
+    
+    width: 400px;
+    
+    object-fit: cover;
     
    
-    max-width: 70%;
-    
 }
 footer {
+    display: flex;
+    justify-content: space-around;
     background-color: rgb(15, 39, 58);
     min-height: 7vh;
     bottom: 0px;
@@ -189,6 +203,13 @@ footer {
     width: 98vw;
     margin-left: .25rem;
 }
+
+footer h5 {
+    color: antiquewhite;
+
+}
+
+
 form {
     border: 2px solid white;
     padding: 1rem;
@@ -273,27 +294,43 @@ form {
 
 .stats-container {
     display: flex;
+    flex-direction: column;
+    align-items: center;
     flex-wrap: wrap;
     margin: auto;
-    width: 95vw;
+    width: 98vw;
     min-height: 65vh;
-    background-color: aqua;
+    background-color: rgb(146, 190, 128);
 }
 
 .stats_title {
-    border: 1px solid;
-    text-align:left;
-    width: 100%; 
-    height: 4vh;
+    /* border: 1px solid gray; */
+    text-align:center;
+    padding-top: .25rem;
+    width: 98vw; 
+    height: 6vh;
     margin-top: 0px;
-    background-color: rgb(209, 218, 196); 
+    /* background-color: rgb(209, 218, 196);  */
 }
 
-table {
-    border: 1px solid black;
-    inline-size: auto;
+table.table-bordered{
+    border: 1px solid white;
+    width: 70%;
+    
 
 }
+
+/* .contact-main{
+    background-color:rgb(146, 190, 128); 
+    margin-left: .25rem;
+    width: 98vw;
+} */
+#contact-contenedor {
+    width: 98vw;
+    display: flex;
+    flex-wrap: wrap;
+}
+
 
 .contact_form {
     
