@@ -49,7 +49,7 @@
                 </nav>
             </div>
         </div>
-
+<!-- 
         <form action="./show_data.html" method="get">
             <fieldset id="categories">
 
@@ -77,6 +77,39 @@
         <div id="contenedor" class="d-flex flex-wrap ">
 
 
+        </div> -->
+
+        <div id="app">
+            <div id="contenedor" class="d-flex flex-wrap ">
+                <div>
+                    <input v-model="texto" type="text" class="form-control m-3" placeholder="Amazing Events">
+                </div>
+                <div class="d-flex justify-content-center align-items-center flex-wrap gap-3">
+                    <template v-for="category of categorias">
+                        <div v-if="category" class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" role="switch" :id="category"
+                                v-model="categoriasSeleccionadas" :value="category">
+                            <label class="form-check-label" :for="category">{{category}}</label>
+                        </div>
+                    </template>
+                </div>
+                {{filtroDoble}}
+                <div class="d-flex justify-content-center align-items-center flex-wrap gap-3">
+                    <h2 v-if="events.length == 0" class="display-1 fw-bolder">No hay coincidencias!</h2>
+                    <div v-for="event of events" class="card text-black" style="width: 18rem;">
+                        <img :src="event.image == ''? 'https://uploads.turbologo.com/uploads/design/hq_preview_image/5097676/draw_svg20210617-26747-23281c.svg.png' : event.image"
+                            class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">{{event.name}}</h5>
+                            <p class="card-text">Casa: {{event.place}}</p>
+                            <p>Price:&#36; {{event.price}}</p>
+                            <!-- <a href="details.html" class="btn btn-primary">Ver mas info</a> -->
+                            <button @click="seeDetail(event._id)" class="btn btn-primary">See more</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </div>
 
 
@@ -106,7 +139,8 @@
         crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- <script src="./Scripts/data.js"></script> -->
-    <script src="./Scripts/data.json"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <!-- <script src="./Scripts/data.json"></script> -->
     <script src="./Scripts/pevents.js"></script>
     <script src="./Scripts/filters_search.js"></script>
 </body>
