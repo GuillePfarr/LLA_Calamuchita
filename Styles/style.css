@@ -45,7 +45,7 @@ nav {
 }
 
 #contenedor {
-    width: 98vw;
+    /* width: 98vw; */
     display: flex;
     flex-wrap: wrap;
     justify-content: center;/*centra las cards de la ùltima fila(probado26feb23)*/
@@ -96,7 +96,7 @@ nav {
     display: flex;
     flex-wrap: wrap;
     height: 16vh;
-    min-width: 98vw;
+    /* min-width: 98vw; */
     text-align: center;
     background-color: rgb(102, 102, 146);
     margin-left: .07rem;
@@ -389,6 +389,13 @@ table.table-bordered{
  @media only screen and (min-width:575px) and (max-width:1024px) {
    
 }
+
+/* @media only screen and  (min-width:1000px) {
+    .form-control{
+        width: 90vw;
+    }
+   
+} */
 @media only screen and (min-width:320px) and (max-width:574px){
     .navbar_2  {
         width: 100%;
