@@ -34,6 +34,118 @@
 
     <div class="details-main">
         <div id="details-contenedor">
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot Simple</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #chat-container {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            width: 300px;
+            max-width: 100%;
+            height: 400px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #chat-messages {
+            flex: 1;
+            padding: 16px;
+            overflow-y: auto;
+        }
+
+        #user-input {
+            padding: 8px;
+            display: flex;
+            align-items: center;
+        }
+
+        #user-input input {
+            flex: 1;
+            padding: 8px;
+            border: none;
+            border-radius: 4px;
+            margin-right: 8px;
+        }
+
+        #user-input button {
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="chat-container">
+        <div id="chat-messages"></div>
+        <div id="user-input">
+            <input type="text" id="user-input-text" placeholder="Escribe un mensaje...">
+            <button onclick="sendMessage()">Enviar</button>
+        </div>
+    </div>
+
+    <script>
+        const chatMessages = document.getElementById('chat-messages');
+        const userInputText = document.getElementById('user-input-text');
+
+        function sendMessage() {
+            const userMessage = userInputText.value.trim();
+            if (userMessage === '') return;
+
+            appendMessage('user', userMessage);
+
+            // Aquí puedes agregar la lógica para responder al mensaje del usuario
+            const botResponse = getBotResponse(userMessage);
+
+            appendMessage('bot', botResponse);
+
+            // Limpiar el campo de entrada
+            userInputText.value = '';
+
+            // Desplazarse hacia abajo para mostrar el último mensaje
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function appendMessage(sender, message) {
+            const messageDiv = document.createElement('div');
+            messageDiv.classList.add(sender === 'user' ? 'user-message' : 'bot-message');
+            messageDiv.textContent = message;
+            chatMessages.appendChild(messageDiv);
+        }
+
+        function getBotResponse(userMessage) {
+            // Aquí puedes agregar la lógica para generar respuestas del bot
+            // Este es solo un ejemplo simple
+            if (userMessage.toLowerCase().includes('hola')) {
+                return '¡Hola! ¿Cómo puedo ayudarte?';
+            } else {
+                return 'Lo siento, no entiendo. ¿Puedes ser más específico?';
+            }
+        }
+    </script>
+</body>
+
+</html>
 
         </div>
     </div>

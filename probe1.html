@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Tu Sitio</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .logo {
+            color: #fff;
+            font-size: 24px;
+            text-decoration: none;
+        }
+
+        .navbar {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            padding: 15px;
+            display: none;
+        }
+
+        .navbar a.dropdown-toggle {
+            display: block;
+        }
+
+        #menu-icon {
+            font-size: 24px;
+            cursor: pointer;
+            color: #fff;
+            display: none;
+        }
+
+        @media only screen and (max-width: 768px) {
+            .navbar a {
+                display: none;
+                text-align: center;
+                width: 100%;
+            }
+
+            .navbar.active a {
+                display: block;
+            }
+
+            .logo {
+                text-align: center;
+                width: 100%;
+                margin-bottom: 15px;
+            }
+
+            .navbar {
+                flex-direction: column;
+            }
+
+            #menu-icon {
+                display: block;
+            }
+
+            .navbar a.dropdown-toggle {
+                display: none;
+            }
+
+            .navbar.active a.dropdown-toggle {
+                display: block;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">Logo</div>
+        <div class="navbar" id="navbar">
+            <a href="#">Inicio</a>
+            <a href="#">Acerca de</a>
+            <a href="#">Servicios</a>
+            <a href="#">Contacto</a>
+            <a href="#">Enlace 1</a>
+            <a href="#">Enlace 2</a>
+            <a href="#">Enlace 3</a>
+            <a href="#">Enlace 4</a>
+            <a href="#">Enlace 5</a>
+            <a class="dropdown-toggle" href="#">Dropdown</a>
+        </div>
+        <div id="menu-icon">&#9776;</div>
+    </header>
+
+    <main>
+        <!-- Contenido principal aquí -->
+    </main>
+
+    <footer>
+        <!-- Pie de página aquí -->
+    </footer>
+
+    <script>
+        document.getElementById('menu-icon').addEventListener('click', function () {
+            var navbar = document.getElementById('navbar');
+            navbar.classList.toggle('active');
+        });
+    </script>
+
+</body>
+
+</html>
